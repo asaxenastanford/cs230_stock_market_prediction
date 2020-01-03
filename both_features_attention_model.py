@@ -30,7 +30,7 @@
 
 # dj = pd.read_csv("/home/ubuntu/.../DowJones.csv") #read in stock prices
 # news = pd.read_csv("/home/ubuntu/.../News.csv") #read in news data
-
+# news = news[news.Date.isin(dj.Date)]
 
 # # ## Inspect the data
 # dj.head()
@@ -305,7 +305,6 @@
 
 gold = pd.read_csv("/home/ubuntu/.../models/gld.csv") #read in gold data
 gold = gold.reindex(index=gold.index[::-1])
-news = news[news.Date.isin(dj.Date)]
 gold = gold[gold.Date.isin(dj.Date)]
 gold.reset_index(drop=True, inplace=True)
 gold.drop_duplicates('Date')
